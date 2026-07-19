@@ -15,6 +15,7 @@ spec:
     spec:
       containers:
         - name: shopsphere-client
-          image: 260597895391.dkr.ecr.us-east-1.amazonaws.com/shopsphere/client:v1
+          image: 690640933457.dkr.ecr.eu-north-1.amazonaws.com/shopsphere/client:latest
           ports:
             - containerPort: 80
+          
