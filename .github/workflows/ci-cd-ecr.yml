@@ -4,11 +4,11 @@ on:
   push:
     branches:
       - main
-      - master
+      - FeatureBranch
   pull_request:
     branches:
       - main
-      - master
+      - FeatureBranch
   workflow_dispatch:
 
 permissions:
