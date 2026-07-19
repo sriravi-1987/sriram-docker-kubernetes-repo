@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shopsphere-client
+  namespace: shopsphere
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: shopsphere-client
+  template:
+    metadata:
+      labels:
+        app: shopsphere-client
+    spec:
+      containers:
+        - name: shopsphere-client
+          image: 260597895391.dkr.ecr.us-east-1.amazonaws.com/shopsphere/client:v1
+          ports:
+            - containerPort: 80

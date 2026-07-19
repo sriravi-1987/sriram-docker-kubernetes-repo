@@ -1,0 +1,28 @@
+<article class="product-card">
+  <div class="product-card__top">
+    <span class="product-card__category">{{ product.category }}</span>
+    <span class="product-card__stock" [ngClass]="stockClass">
+      {{ stockLabel }}
+    </span>
+  </div>
+
+  <div class="product-card__content">
+    <h3>{{ product.name }}</h3>
+    <p>{{ product.description }}</p>
+  </div>
+
+  <div class="product-card__bottom">
+    <div class="product-card__price">
+      {{ product.price | currency:'INR':'symbol':'1.0-0' }}
+    </div>
+
+    <div class="product-card__meta">
+      Qty: {{ product.stockQuantity }}
+    </div>
+  </div>
+
+  <div class="product-card__actions">
+    <a [routerLink]="['/products', product.id, 'edit']" class="btn btn--secondary">Edit</a>
+    <button type="button" class="btn btn--danger" (click)="onDelete()">Delete</button>
+  </div>
+</article>

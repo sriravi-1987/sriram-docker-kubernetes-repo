@@ -1,0 +1,28 @@
+# Node modules (huge, not needed)
+node_modules
+
+# Build output (will be generated inside container)
+dist
+
+# Angular cache
+.angular
+
+# Logs
+npm-debug.log
+yarn-error.log
+
+# IDE files
+.vscode
+.idea
+
+# Git
+.git
+.gitignore
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+.env.*

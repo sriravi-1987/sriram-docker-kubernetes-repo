@@ -1,0 +1,60 @@
+<section class="product-form-card">
+  <div class="product-form-card__header">
+    <h2>{{ title }}</h2>
+    <p>{{ subtitle }}</p>
+  </div>
+
+  <form [formGroup]="productForm" (ngSubmit)="submitForm()" class="product-form">
+    <div class="form-grid">
+      <div class="form-field form-field--full">
+        <label for="name">Product Name</label>
+        <input id="name" type="text" formControlName="name" placeholder="Enter product name" />
+        <small *ngIf="productForm.controls.name.touched && productForm.controls.name.invalid">
+          Product name is required.
+        </small>
+      </div>
+
+      <div class="form-field form-field--full">
+        <label for="description">Description</label>
+        <textarea
+          id="description"
+          rows="4"
+          formControlName="description"
+          placeholder="Enter product description"></textarea>
+        <small *ngIf="productForm.controls.description.touched && productForm.controls.description.invalid">
+          Description is required.
+        </small>
+      </div>
+
+      <div class="form-field">
+        <label for="price">Price</label>
+        <input id="price" type="number" formControlName="price" placeholder="Enter price" />
+        <small *ngIf="productForm.controls.price.touched && productForm.controls.price.invalid">
+          Price must be greater than 0.
+        </small>
+      </div>
+
+      <div class="form-field">
+        <label for="category">Category</label>
+        <input id="category" type="text" formControlName="category" placeholder="Enter category" />
+        <small *ngIf="productForm.controls.category.touched && productForm.controls.category.invalid">
+          Category is required.
+        </small>
+      </div>
+
+      <div class="form-field">
+        <label for="stockQuantity">Stock Quantity</label>
+        <input id="stockQuantity" type="number" formControlName="stockQuantity" placeholder="Enter stock quantity" />
+        <small *ngIf="productForm.controls.stockQuantity.touched && productForm.controls.stockQuantity.invalid">
+          Stock quantity cannot be negative.
+        </small>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="btn btn--primary" [disabled]="isSubmitting">
+        {{ isSubmitting ? 'Saving...' : (mode === 'create' ? 'Create Product' : 'Update Product') }}
+      </button>
+    </div>
+  </form>
+</section>

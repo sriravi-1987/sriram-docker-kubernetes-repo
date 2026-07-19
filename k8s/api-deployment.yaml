@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shopsphere-api
+  namespace: shopsphere
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: shopsphere-api
+  template:
+    metadata:
+      labels:
+        app: shopsphere-api
+    spec:
+      containers:
+        - name: shopsphere-api
+          image: 260597895391.dkr.ecr.us-east-1.amazonaws.com/shopsphere/api:v2
+          ports:
+            - containerPort: 8080
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: "Development"
+            - name: UseInMemory
+              value: "false"
+            - name: MongoDb__ConnectionString
+              value: "mongodb://shopsphere-mongo:27017"
+            - name: MongoDb__DatabaseName
+              value: "ShopSphereDb"
+            - name: MongoDb__ProductsCollectionName
+              value: "Products"

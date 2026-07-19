@@ -1,0 +1,14 @@
+services:
+  shopsphere-api:
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      UseInMemory: "false"
+      MongoDb__ConnectionString: mongodb://shopsphere-mongo:27017
+      MongoDb__DatabaseName: ShopSphereDb
+      MongoDb__ProductsCollectionName: Products
+
+  shopsphere-mongo:
+    restart: unless-stopped
+
+  shopsphere-client:
+    restart: unless-stopped

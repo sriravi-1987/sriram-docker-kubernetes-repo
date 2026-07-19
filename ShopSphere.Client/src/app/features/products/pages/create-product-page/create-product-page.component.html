@@ -1,0 +1,13 @@
+<section class="create-product-page page-section">
+  <a routerLink="/products" class="page-link">← Back to Products</a>
+
+  <div *ngIf="errorMessage" class="page-error">
+    {{ errorMessage }}
+  </div>
+
+  <app-product-form
+    mode="create"
+    [isSubmitting]="isSubmitting"
+    (formSubmitted)="onCreateProduct($event)">
+  </app-product-form>
+</section>

@@ -1,0 +1,24 @@
+services:
+  shopsphere-api:
+    image: 690640933457.dkr.ecr.eu-north-1.amazonaws.com/shopsphere/api:v1
+    ports:
+      - "8080:8080"
+    depends_on:
+      - shopsphere-mongo
+
+  shopsphere-mongo:
+    image: mongo:7.0
+    ports:
+      - "27017:27017"
+    volumes:
+      - shopsphere-mongo-data:/data/db
+
+  shopsphere-client:
+    image: 690640933457.dkr.ecr.eu-north-1.amazonaws.com/shopsphere/client:v1
+    ports:
+      - "4200:80"
+    depends_on:
+      - shopsphere-api
+
+volumes:
+  shopsphere-mongo-data:

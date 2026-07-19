@@ -1,0 +1,18 @@
+<header class="header">
+  <div class="header__brand">
+    <div class="header__logo">S</div>
+    <div class="header__brand-text">
+      <h1>ShopSphere</h1>
+      <p>Product Catalog Dashboard</p>
+    </div>
+  </div>
+
+  <nav class="header__nav">
+    <a routerLink="/products" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+      Products
+    </a>
+    <a routerLink="/products/new" routerLinkActive="active">
+      Add Product
+    </a>
+  </nav>
+</header>

@@ -1,0 +1,36 @@
+<section class="products-page">
+  <div class="hero">
+    <div>
+      <h2>Manage Your Product Catalog</h2>
+      <p>
+        Explore, manage, and organize your products with a premium dashboard experience.
+      </p>
+    </div>
+
+    <a routerLink="/products/new" class="hero__action">+ Add New Product</a>
+  </div>
+
+  <div class="stats-grid">
+    <div class="stat-card">
+      <span>Total Products</span>
+      <strong>{{ totalProducts }}</strong>
+    </div>
+
+    <div class="stat-card">
+      <span>Categories</span>
+      <strong>{{ totalCategories }}</strong>
+    </div>
+
+    <div class="stat-card">
+      <span>Total Inventory</span>
+      <strong>{{ inventoryCount }}</strong>
+    </div>
+
+    <div class="stat-card">
+      <span>Average Price</span>
+      <strong>{{ averagePrice | currency:'INR':'symbol':'1.0-0' }}</strong>
+    </div>
+  </div>
+
+  <app-product-list (productsLoaded)="onProductsLoaded($event)"></app-product-list>
+</section>
